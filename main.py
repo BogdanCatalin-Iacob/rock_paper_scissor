@@ -31,8 +31,11 @@ class RockPaperScissors:
         self.display_moves(user_move, ai_move)
         self.check_move(user_move, ai_move)
 
-    def display_moves(self):
-        ...
+    def display_moves(self, user_move: str, ai_move: str):
+        print('----')
+        print(f'You: {self.moves[user_move]}')
+        print(f'AI: {self.moves[ai_move]}')
+        print('----')
 
     def check_move(self):
         ...
