@@ -8,7 +8,7 @@ class RockPaperScissors:
     def __init__(self):
         print('Welcome to Rock, paper, Scissors!')
         self.moves: dict = {'rock': '🏔️', 'paper': '📜', 'scissors': '✂️'}
-        self.valid_moves: list(str) = list(self.moves.keys()).append(['1', '2', '3'])
+        self.valid_moves: list(str) = list(self.moves.keys())
 
     def play_game(self):
         '''
@@ -16,7 +16,7 @@ class RockPaperScissors:
         '''
         print('Make your choice or type \'exit\' to end the game')
         user_move: str = input(
-            '1 -> Rock 🏔️, 2 -> Paper 📜 or 3 -> Scissors ✂️ >> ').lower()
+            '1 -> Rock 🏔️,\n2 -> Paper 📜 \n3 -> Scissors ✂️  \n>> ').lower()
 
         if user_move == 'exit':
             print('Thanks for playing!')
@@ -32,10 +32,32 @@ class RockPaperScissors:
         self.check_move(user_move, ai_move)
 
     def display_moves(self, user_move: str, ai_move: str):
+        '''
+        Displays user and AI moves
+        '''
         print('----')
         print(f'You: {self.moves[user_move]}')
         print(f'AI: {self.moves[ai_move]}')
         print('----')
 
-    def check_move(self):
-        ...
+    def check_move(self, user_move: str, ai_move: str):
+        '''
+        Check the player move agains AI move and displays the result
+        '''
+        if user_move == ai_move:
+            print('It\'s a tie!')
+        elif user_move == 'rock' and ai_move == 'scissors':
+            print('You win!')
+        elif user_move == 'scissors' and ai_move == 'paper':
+            print('You win!')
+        elif user_move == 'paper' and ai_move == 'rock':
+            print('You win!')
+        else:
+            print('You lost!')
+        print('-----------------------------------')
+
+
+if __name__ == '__main__':
+    rock_paper_scissors = RockPaperScissors()
+    while True:
+        rock_paper_scissors.play_game()
