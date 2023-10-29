@@ -18,6 +18,14 @@ class RockPaperScissors:
         user_move: str = input(
             '1 -> Rock 🏔️,\n2 -> Paper 📜 \n3 -> Scissors ✂️  \n>> ').lower()
 
+        match(user_move):
+            case '1':
+                user_move = 'rock'
+            case '2':
+                user_move = 'paper'
+            case '3':
+                user_move = 'scissors'
+
         if user_move == 'exit':
             print('Thanks for playing!')
             sys.exit()
