@@ -1,6 +1,7 @@
 '''
 Rock, Paper, Scissors game
 '''
+import random
 import sys
 
 class RockPaperScissors:
@@ -24,6 +25,11 @@ class RockPaperScissors:
         if user_move not in self.valid_moves:
             print('Invalid choice...')
             return self.play_game()
+
+        ai_move: str = random.choice(self.valid_moves)
+
+        self.display_moves(user_move, ai_move)
+        self.check_move(user_move, ai_move)
 
     def display_moves(self):
         ...
